@@ -1,8 +1,8 @@
-export function Scoreboard({ label, score, className }) {
+export function Scoreboard({ currentScore, highScore }) {
   return (
-    <div className={className}>
-      <p>{label}</p>
-      <div>{score}</div>
+    <div className='scoreboard-container'>
+      <p>Current Score: {currentScore}</p>
+      <p>High Score: {highScore}</p>
     </div>
   );
 }
