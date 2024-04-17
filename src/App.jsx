@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import GameBoard from './components/GameBoard';
 import Scoreboard from './components/Scoreboard';
-import Button from './components/Button';
+import GameOver from './components/GameOver';
 import { getDriverData } from './utils/fetchDriverData';
 import './App.css'
 
@@ -9,12 +9,12 @@ export default function App() {
   const [drivers, setDrivers] = useState([]);
   const [currentScore, setCurrentScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
+  const [isGameOver, setIsGameOver] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
       const driverData = getDriverData();
       setDrivers(driverData);
-      setShuffledDrivers(shuffleArray(driverData));
     }
 
     fetchData();
@@ -22,40 +22,36 @@ export default function App() {
 
   const onScoreUpdate = () => {
     setCurrentScore(currentScore + 1);
-  }
+  };
 
   const onGameOver = () => {
-    return (
-      <div className='game-over-container'>
-        <p>{currentScore} different drivers selected</p>
-        <Button
-          label='Play Again'
-          className='reset-button'
-          onClick={handleReset}
-        />
-      </div>
-    );
-  }
+    setIsGameOver(true);
+  };
 
   const handleReset = () => {
     if (currentScore > highScore) {
       setHighScore(currentScore);
     }
-    
+
     setDrivers([]);
     setCurrentScore(0);
-  }
+    setIsGameOver(false);
+  };
 
   return (
     <>
       <div className='score-container'>
         <Scoreboard currentScore={currentScore} highScore={highScore} />
       </div>
-      <GameBoard
-        drivers={drivers}
-        onGameOver={onGameOver}
-        onScoreUpdate={onScoreUpdate}
-      />
+      {!isGameOver ? (
+        <GameBoard
+          drivers={drivers}
+          onGameOver={onGameOver}
+          onScoreUpdate={onScoreUpdate}
+        />
+      ) : (
+        <GameOver currentScore={currentScore} onClick={handleReset}/>
+      )}
     </>
   )
 }

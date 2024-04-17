@@ -17,8 +17,9 @@ export default function GameBoard({ drivers, onGameOver, onScoreUpdate }) {
     }
   };
 
-  const shuffleArray = (array) => {
-    // TODO: array shuffling logic
+  const shuffleArray = (drivers) => {
+    const shuffledDrivers = drivers.sort(() => 0.5 - Math.random());
+    
     return shuffledDrivers;
   };
 
