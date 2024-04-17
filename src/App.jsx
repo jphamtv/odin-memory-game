@@ -10,11 +10,15 @@ export default function App() {
   const [currentScore, setCurrentScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
   const [isGameOver, setIsGameOver] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
-      const driverData = getDriverData();
+      const driverData = await getDriverData();
       setDrivers(driverData);
+      setIsLoading(false);
+
+      console.log('App triggered')
     }
 
     fetchData();
@@ -26,17 +30,24 @@ export default function App() {
 
   const onGameOver = () => {
     setIsGameOver(true);
-  };
-
-  const handleReset = () => {
+    
     if (currentScore > highScore) {
       setHighScore(currentScore);
     }
+    
+  };
 
-    setDrivers([]);
+  const handleReset = () => {
+    console.log('Reset triggered')
+    
+
     setCurrentScore(0);
     setIsGameOver(false);
   };
+
+  if (isLoading) {
+    return <div>Loading...</div>
+  }
 
   return (
     <>

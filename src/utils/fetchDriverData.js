@@ -36,11 +36,3 @@ export async function getDriverData() {
     throw error;
   }
 }
-
-getDriverData()
-  .then((extractedData) => {
-    console.log(extractedData);
-  })
-  .catch((error) => {
-    console.error('Error:', error);
-  });

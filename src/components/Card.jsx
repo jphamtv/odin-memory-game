@@ -1,3 +1,5 @@
+import '../styles/Card.css';
+
 export default function Card({ driver, onClick }) {
   return (
     <div className='card' onClick={onClick}>

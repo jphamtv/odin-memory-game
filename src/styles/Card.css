@@ -1,0 +1,21 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: auto;
+  background-color: white;
+  cursor: pointer;
+}
+
+.name {
+  color: black;
+  padding: 0.5rem;
+  background-color: rgb(203, 209, 215);
+}
+
+img {
+  width: 200px;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
