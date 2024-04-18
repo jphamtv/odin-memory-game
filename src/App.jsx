@@ -49,8 +49,8 @@ export default function App() {
   return (
     <>
       <header>
-        <h1>Memory Game</h1>
-        <p>How to play: Select a driver card without repeating.</p>
+        <h1>F1 Memory Game</h1>
+        <p>Avoid selecting the same driver twice.</p>
       </header>
       <div className='score-container'>
         <Scoreboard currentScore={currentScore} highScore={highScore} />
