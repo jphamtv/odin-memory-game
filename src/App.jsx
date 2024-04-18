@@ -17,8 +17,6 @@ export default function App() {
       const driverData = await getDriverData();
       setDrivers(driverData);
       setIsLoading(false);
-
-      console.log('App triggered')
     }
 
     fetchData();
@@ -30,7 +28,7 @@ export default function App() {
 
   const onGameOver = () => {
     setIsGameOver(true);
-    
+
     if (currentScore > highScore) {
       setHighScore(currentScore);
     }
@@ -38,8 +36,7 @@ export default function App() {
   };
 
   const handleReset = () => {
-    console.log('Reset triggered')
-    
+    console.log('Reset triggered')    
 
     setCurrentScore(0);
     setIsGameOver(false);
@@ -51,6 +48,10 @@ export default function App() {
 
   return (
     <>
+      <header>
+        <h1>Memory Game</h1>
+        <p>How to play: Select a driver card without repeating.</p>
+      </header>
       <div className='score-container'>
         <Scoreboard currentScore={currentScore} highScore={highScore} />
       </div>

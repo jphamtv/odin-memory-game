@@ -4,23 +4,14 @@ import shuffleArray from "../utils/shuffleArray";
 import '../styles/GameBoard.css'
 
 export default function GameBoard({ drivers, onGameOver, onScoreUpdate }) {
-  const [shuffledDrivers, setShuffledDrivers] = useState([]);
   const [selectedDrivers, setSelectedDrivers] = useState([]);
+  const [shuffledDrivers, setShuffledDrivers] = useState(shuffleArray([...drivers]));
   const [score, setScore] = useState(0);
-
-  useEffect(() => {
-    if (drivers.length > 0) {
-      setShuffledDrivers(shuffleArray(drivers));
-    }
-    console.log(`GameBoard triggered`)
-    console.log(drivers)
-
-  }, [drivers]);
 
   const handleCardClick = (driver) => {
     if (!selectedDrivers.includes(driver)) {
       setSelectedDrivers([...selectedDrivers, driver]);
-      setShuffledDrivers(shuffleArray(drivers));
+      setShuffledDrivers(shuffleArray([...drivers]));
       setScore(score + 1);
       onScoreUpdate(score + 1);
     } else {
