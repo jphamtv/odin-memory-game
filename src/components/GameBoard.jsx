@@ -9,8 +9,8 @@ export default function GameBoard({ drivers, onGameOver, onScoreUpdate }) {
   const [score, setScore] = useState(0);
 
   const handleCardClick = (driver) => {
-    if (!selectedDrivers.includes(driver)) {
-      setSelectedDrivers([...selectedDrivers, driver]);
+    if (!selectedDrivers.includes(driver.name)) {
+      setSelectedDrivers([...selectedDrivers, driver.name]);
       setShuffledDrivers(shuffleArray([...drivers]));
       setScore(score + 1);
       onScoreUpdate(score + 1);
@@ -26,7 +26,8 @@ export default function GameBoard({ drivers, onGameOver, onScoreUpdate }) {
       {shuffledDrivers.map((driver) => (
         <Card
           key={driver.name}
-          driver={driver} onClick={() => handleCardClick(driver)}
+          driver={driver}
+          onClick={() => handleCardClick(driver)}
         />
       ))}
     </div>
