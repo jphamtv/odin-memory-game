@@ -4,7 +4,7 @@
   height: 100%;
   background-color: white;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 8px;
 }
 
 .card-front {
@@ -19,14 +19,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 4px;
+  border-radius: 8px;
 }
 
 .name {
-  font-size: 1rem;
+  font-family: 'Formula1', ;
+  font-size: 0.9rem;
   font-weight: bold;
-  font-style: italic;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   color: #15151E;
   padding: 0.6rem 0;
   width: 100%;
