@@ -30,8 +30,8 @@ export default function GameBoard({ drivers, onGameOver, onScoreUpdate }) {
         setShuffledDrivers(shuffleArray([...drivers]));
         setTimeout(() => {
           setIsFlipping(false);
-        }, 600); // Match the flip animation
-      }, 400); // Match flip animation transition timing
+        }, 600); // Match the flip animation transition timing
+      }, 400); // Adjust for pause length
 
       return () => clearTimeout(timeoutId);
     }

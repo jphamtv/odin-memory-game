@@ -9,16 +9,6 @@ export default function Card({ key, driver, onClick, isFlipping }) {
     if (isFlipping) return;
     onClick();
   }
-
-  // useEffect(() => {
-  //   if (isFlipping) {
-  //     setIsFlipped(true);
-  //   } else {
-  //     setTimeout(() => {
-  //       setIsFlipped(false);
-  //     }, 600); // Match the flip animation timing
-  //   }
-  // }, [isFlipping]);
   
   useEffect(() => {
     setIsFlipped(isFlipping);
