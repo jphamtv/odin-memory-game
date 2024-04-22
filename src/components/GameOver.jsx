@@ -1,14 +1,17 @@
 import Button from "./Button";
+import '../styles/GameOver.css'
 
 export default function GameOver({ currentScore, onClick }) {
   return (
     <div className='game-over-container'>
-      <p>{currentScore} different drivers selected</p>
-      <Button
-        label='Play Again'
-        className='reset-button'
-        onClick={onClick}
-      />
+      <div className="game-over-wrapper">
+        <p>{currentScore} different drivers selected</p>
+        <Button
+          label='Play Again'
+          className='reset-button'
+          onClick={onClick}
+        />
+      </div>
     </div>
   );
 }
