@@ -7,19 +7,35 @@ export default function GameBoard({ drivers, onGameOver, onScoreUpdate }) {
   const [selectedDrivers, setSelectedDrivers] = useState([]);
   const [shuffledDrivers, setShuffledDrivers] = useState(shuffleArray([...drivers]));
   const [score, setScore] = useState(0);
+  const [isFlipping, setIsFlipping] = useState(false);
 
   const handleCardClick = (driver) => {
+    if (isFlipping) return;
+
     if (!selectedDrivers.includes(driver.name)) {
       setSelectedDrivers([...selectedDrivers, driver.name]);
-      setShuffledDrivers(shuffleArray([...drivers]));
       setScore(score + 1);
       onScoreUpdate(score + 1);
+      setIsFlipping(true);
     } else {
       onGameOver();
       setSelectedDrivers([]);
       setScore(0);
     }
   };
+
+  useEffect(() => {
+    if (isFlipping) {
+      const timeoutId = setTimeout(() => {
+        setShuffledDrivers(shuffleArray([...drivers]));
+        setTimeout(() => {
+          setIsFlipping(false);
+        }, 600); // Match the flip animation
+      }, 400); // Match flip animation transition timing
+
+      return () => clearTimeout(timeoutId);
+    }
+  }, [isFlipping, drivers]);
 
   return (
     <div className="card-grid">
@@ -28,6 +44,7 @@ export default function GameBoard({ drivers, onGameOver, onScoreUpdate }) {
           key={driver.name}
           driver={driver}
           onClick={() => handleCardClick(driver)}
+          isFlipping={isFlipping}
         />
       ))}
     </div>
