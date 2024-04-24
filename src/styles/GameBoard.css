@@ -4,3 +4,26 @@
   gap: 1.25rem 1.25rem;
 }
 
+@media screen and (max-width: 1010px) {
+  .card-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media screen and (max-width: 810px) {
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 610px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 410px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}

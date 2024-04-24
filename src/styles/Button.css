@@ -8,11 +8,11 @@ button {
   font-weight: 700;
   background-color: #DF0501;
   cursor: pointer;
-  transition: border-color 0.25s;
 }
 
 button:hover {
-  border-color: #fff;
+  background-color: rgb(180, 8, 6);
+  transition: background-color 0.25s;
 }
 
 button:focus,

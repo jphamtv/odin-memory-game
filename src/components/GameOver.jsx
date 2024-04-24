@@ -5,7 +5,7 @@ export default function GameOver({ currentScore, onClick }) {
   return (
     <div className='game-over-container'>
       <div className="game-over-wrapper">
-        <p>{currentScore} different drivers selected</p>
+        <p>You selected {currentScore} different drivers</p>
         <Button
           label='Play Again'
           className='reset-button'

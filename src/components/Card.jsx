@@ -23,7 +23,7 @@ export default function Card({ key, driver, onClick, isFlipping }) {
           </div>
         </div>
         <div className='card-back'>
-          <img src={Logo} alt='Formula One logo' />
+          <img className='card-back-logo' src={Logo} alt='Formula One logo' />
         </div>  
     </div>
   );
