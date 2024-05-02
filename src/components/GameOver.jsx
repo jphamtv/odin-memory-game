@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import Button from "./Button";
 import '../styles/GameOver.css'
 
@@ -14,4 +15,9 @@ export default function GameOver({ currentScore, onClick }) {
       </div>
     </div>
   );
+}
+
+GameOver.propTypes = {
+  currentScore: PropTypes.number,
+  onClick: PropTypes.func,
 }

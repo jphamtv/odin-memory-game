@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import PropTypes from 'prop-types';
 import Card from './Card'
 import shuffleArray from "../utils/shuffleArray";
 import '../styles/GameBoard.css'
@@ -49,4 +50,10 @@ export default function GameBoard({ drivers, onGameOver, onScoreUpdate }) {
       ))}
     </div>
   );
+}
+
+GameBoard.propTypes = {
+  drivers: PropTypes.array,
+  onGameOver: PropTypes.func,
+  onScoreUpdate: PropTypes.func,
 }

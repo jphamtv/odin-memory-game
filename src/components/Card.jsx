@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import Logo from '../assets/logo_f1_white.svg';
 import '../styles/Card.css';
 
@@ -27,4 +28,11 @@ export default function Card({ key, driver, onClick, isFlipping }) {
         </div>  
     </div>
   );
+}
+
+Card.propTypes = {
+  key: PropTypes.string,
+  driver: PropTypes.string,
+  onClick: PropTypes.func,
+  isFlipping: PropTypes.bool,
 }
